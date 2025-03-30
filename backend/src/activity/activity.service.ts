@@ -16,13 +16,21 @@ export class ActivityService {
     });
   }
 
-  async getAllActivities() {
-    return prisma.activity.findMany();
+  async getActivityById(id: number) {
+    return await prisma.activity.findUnique({
+      where: { id },
+    });
   }
 
-  async getActivitiesByUserId(userId: number) {
-    return prisma.activity.findMany({
-      where: { userId },
+  async updateActivity(
+    id: number,
+    title: string,
+    description: string,
+    date: Date,
+  ) {
+    return await prisma.activity.update({
+      where: { id },
+      data: { title, description, date },
     });
   }
 }

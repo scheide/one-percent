@@ -23,6 +23,19 @@ export class UserController {
     } as Partial<User>;
   }
 
+  @Post('login') // Add 'login' as the route path
+  async login(
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ): Promise<Partial<User>> {
+    const response = await this.userService.login(email, password);
+    return {
+      ok: response.ok,
+      message: response.message,
+      user: response.user,
+    } as Partial<User>;
+  }  
+
   @Get()
   async getAllUsers() {
     return this.userService.getAllUsers();
@@ -30,6 +43,11 @@ export class UserController {
 
   @Get(':id')
   async getUserById(@Param('id') id: number) {
-    return this.userService.getUserById(id);
+    return this.userService.getUserById(Number(id));
   }
+
+  @Get(':id/activities')
+  async getUserActivities(@Param('id') id: number) {
+    return this.userService.getUserActivities(Number(id));
+  }  
 }

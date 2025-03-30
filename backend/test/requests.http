@@ -2,3 +2,31 @@
 
 ###
 GET {{baseUrl}}/users HTTP/1.1
+
+###
+POST {{baseUrl}}/users/login HTTP/1.1
+Content-Type: application/json 
+
+{
+    "email": "mscheide@gmail.com",
+    "password": "serpro123"
+}
+
+###
+GET {{baseUrl}}/users/5
+
+###
+GET {{baseUrl}}/users/5/activities HTTP/1.1
+
+###
+GET http://localhost:4000/api/activities/4 HTTP/1.1
+
+###
+PUT http://localhost:4000/api/activities/4 HTTP/1.1
+Content-Type: application/json 
+
+{
+"date": "2025-03-29",
+"description": "Curso de psicologia",
+"title": "Curso Psico"
+}
