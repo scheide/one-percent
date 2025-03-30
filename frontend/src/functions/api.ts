@@ -33,6 +33,18 @@ export async function httpPut(url: string, data: any) {
   return response.json();
 }
 
+export async function httpDelete(url: string) {
+  const normalizedUrl = urlNormalize(`${baseURL}/${url}`);
+  console.log(normalizedUrl);
+  const response = await fetch(normalizedUrl, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to delete resource at ${normalizedUrl}`);
+  }
+  return response.json();
+}
+
 function urlNormalize(url: string) {
   const protocolo = url.split("://")[0];
   const restante = url.split("://")[1];
