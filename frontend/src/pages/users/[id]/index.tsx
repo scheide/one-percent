@@ -20,23 +20,23 @@ export default function ViewUser() {
 
   if (!user)
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <p className="text-gray-700 text-lg">Loading...</p>
+      <div className="flex justify-center items-center min-h-screen bg-gray-800">
+        <p className="text-gray-300 text-lg">Loading...</p>
       </div>
     );
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
-        <h1 className="text-2xl font-bold mb-4 text-gray-800">
+    <div className="flex justify-center items-center min-h-screen bg-gray-800">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-md w-full max-w-lg">
+        <h1 className="text-2xl font-bold mb-4 text-gray-200">
           {user.name || user.email}
         </h1>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-400 mb-6">
           <span className="font-medium">Email:</span> {user.email}
         </p>
         <a
           href={`/users/${id}/edit`}
-          className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+          className="inline-block bg-blue-700 text-gray-200 py-2 px-4 rounded-lg hover:bg-blue-600 transition"
         >
           Edit
         </a>
