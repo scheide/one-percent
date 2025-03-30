@@ -33,4 +33,10 @@ export class ActivityService {
       data: { title, description, date },
     });
   }
+
+  async deleteActivity(id: number) {
+    return await prisma.activity.delete({
+      where: { id },
+    });
+  }
 }

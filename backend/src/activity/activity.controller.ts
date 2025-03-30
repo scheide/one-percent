@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Put, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, Put, Body, Param, Delete } from '@nestjs/common';
 import { Activity } from '@prisma/client';
 import { ActivityService } from './activity.service';
 
@@ -39,5 +39,10 @@ export class ActivityController {
       description,
       new Date(date),
     );
+  }
+
+  @Delete(':id')
+  async deleteActivity(@Param('id') id: number) {
+    return this.activityService.deleteActivity(Number(id));
   }
 }
